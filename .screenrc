@@ -1,0 +1,23 @@
+#startup_message off
+term xterm-256color
+# keep buffer of 1000 lines (which is plenty!)
+defscrollback 1000
+# write screen content to xterm buffer. Allows mouse wheel scrolling
+termcapinfo xterm* ti@:te@
+
+
+altscreen on                                                                                       
+#term screen-256color                                                                               
+bind ',' prev                                                                                      
+bind '.' next
+
+# note that " is necessary to evaluate the LOGNAME variable
+#hardstatus alwayslastline "%{= kG}[ %{G} $LOGNAME@%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d-%m-%y %{W}%c %{g}]"
+##hardstatus alwayslastline "%{= kG} %{G} $LOGNAME@%H %{g}|%= %{= kw}%?%-Lw%?%{r}[%{W}%n*%f%t%?(%u)%?%{r}]%{w}%?%+Lw%?%?%= %{g}|%{B} %d-%m-%y %{W}%c %{g}"
+# display the username@hostname string in light yellow to the left
+# followed by a green pipe symbol for separation
+# followed by the list of tabs with green names on default background of inactive windows
+# and black on green in square brackets for the active tab
+# followed bt a green pipe symbol for separation
+# followed by the date and time in yellow on default background
+hardstatus alwayslastline "%{= dy} $LOGNAME@%H %{= dg}|%= %-Lw[%{= gk}%n%f* %t%{-}]%+Lw %= %{= dg}|%{= dy} %d-%m-%y %c"
